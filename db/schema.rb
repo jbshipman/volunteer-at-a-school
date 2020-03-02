@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 2020_03_02_225241) do
 
   create_table "schools", force: :cascade do |t|
     t.string "name"
-    t.integer "student_id"
-    t.integer "tutor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -30,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_225241) do
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.integer "grade"
+    t.integer "school_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -42,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_225241) do
 
   create_table "tutors", force: :cascade do |t|
     t.string "name"
+    t.integer "school_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
