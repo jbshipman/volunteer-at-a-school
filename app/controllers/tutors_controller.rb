@@ -5,6 +5,9 @@ class TutorsController < ApplicationController
 
   def show
     @tutor = Tutor.find(params[:id])
+    @appointment = Appointment.find(params[:id])
+    @student = Student.find(params[:id])
+    @subject = Subject.find(params[:id])
   end
 
   def new

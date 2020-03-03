@@ -157,7 +157,11 @@ school_subjects = [
 school_subjects.each {|schsub| SchoolSubject.create(schsub)}
 
 appointments = [
-  {student_id: 1, tutor_id: 1, subject_id: 1, time: "2020-03-10 13:50:00"},
-  {student_id: 2, tutor_id: 4, subject_id: 24, time: "2020-03-10 3:50:00"},
+  {student_id: 4, tutor_id: 6, subject_id: 16, time: "2020-03-10 13:50:00"},
+  {student_id: 8, tutor_id: 5, subject_id: 25, time: "2020-03-10 16:50:00"},
+  {student_id: 10, tutor_id: 2, subject_id: 13, time: "2020-03-10 16:50:00"},
+  {student_id: 5, tutor_id: 1, subject_id: 3, time: "2020-03-20 11:15:00"},
+  {student_id: 3, tutor_id: 3, subject_id: 8, time: "2020-03-05 08:15:00"},
+  {student_id: 7, tutor_id: 4, subject_id: 20, time: "2020-03-03 18:15:00"}
 ]
 appointments.each {|appt| Appointment.create(appt)}

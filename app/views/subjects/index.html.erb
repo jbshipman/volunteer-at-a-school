@@ -2,7 +2,7 @@
 
 <div>
   <ul>
-    <% @subjects.each do |subject| %>
+    <% @subjects.sort_by(&:name).each do |subject| %>
       <li><%= link_to subject.name, subject_path(subject) if @subjects.name %></li>
     <% end %>
   </ul>

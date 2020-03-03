@@ -2,7 +2,7 @@
 
 <div>
   <ul>
-    <% @tutors.each.uniq do |tutor| %>
+    <% @tutors.sort_by(&:name).each do |tutor| %>
       <li><%= link_to tutor.name, tutor_path(tutor) if @tutors.name %></li>
     <% end %>
   </ul> 
