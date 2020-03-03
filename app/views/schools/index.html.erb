@@ -1,0 +1,9 @@
+<h1>School index</h1>
+
+<div>
+  <ul>
+    <% @schools.each do |school| %>
+      <li><%= link_to school.name, school_path(school) if @schools.name %></li>
+    <% end %>
+  </ul>
+</div>

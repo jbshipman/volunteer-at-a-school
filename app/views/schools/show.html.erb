@@ -1,0 +1,28 @@
+<h1><%= @school.name %></h1>
+
+<div>
+  Our Students: 
+  <ul>
+    <% @school.students.each do |student| %>
+      <li><%= link_to student.name, student_path(student) if @school.students.name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  Our Tutors: 
+  <ul>
+    <% @school.tutors.each do |tutor| %>
+      <li><%= link_to tutor.name, tutor_path(tutor) if @school.tutors.name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  What We Teach: 
+  <ul>
+    <% @school.subjects.each do |subject| %>
+      <li><%= link_to subject.name, subject_path(subject) if @school.subjects.name %></li>
+    <% end %>
+  </ul>
+</div>

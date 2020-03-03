@@ -1,0 +1,10 @@
+<h1><%= @subject.name %></h1>
+
+<div>
+  Taught at: 
+  <ul>
+    <% @subject.schools.each do |school| %>
+      <li><%= link_to school.name, school_path(school) if @subject.schools.name %></li>
+    <% end %>
+  </ul>
+</div>

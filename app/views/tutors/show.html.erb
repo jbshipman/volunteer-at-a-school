@@ -1,0 +1,3 @@
+<h1><%= @tutor.name %></h1>
+
+<div>School: <%= link_to @tutor.school.name, school_path(@tutor.school) if @tutor.school %></div>

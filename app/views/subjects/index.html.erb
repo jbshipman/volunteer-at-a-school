@@ -1,0 +1,9 @@
+<h1>Subjects index</h1>
+
+<div>
+  <ul>
+    <% @subjects.each do |subject| %>
+      <li><%= link_to subject.name, subject_path(subject) if @subjects.name %></li>
+    <% end %>
+  </ul>
+</div>

@@ -1,0 +1,9 @@
+<h1>Tutors index</h1>
+
+<div>
+  <ul>
+    <% @tutors.each do |tutor| %>
+      <li><%= link_to tutor.name, tutor_path(tutor) if @tutors.name %></li>
+    <% end %>
+  </ul> 
+</div>
