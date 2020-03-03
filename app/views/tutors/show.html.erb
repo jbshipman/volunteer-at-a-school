@@ -1,3 +1,14 @@
 <h1><%= @tutor.name %></h1>
 
-<div>School: <%= link_to @tutor.school.name, school_path(@tutor.school) if @tutor.school %></div>
+<div>
+  School: <%= link_to @tutor.school.name, school_path(@tutor.school) if @tutor.school %>
+</div>
+
+<div>
+  My Appointments:
+  <ul>
+    <% @tutor.appointments.each do |appt| %>
+      <li><%= appt.time.strftime("%m/%d/%Y") %>, with: <%= appt.student.name %></li>
+    <% end %>
+  </ul>
+</div>
