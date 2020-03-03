@@ -1,4 +1,13 @@
 <h1><%= @student.name %></h1>
 
-<div>School: <%= @student.school.name %></div>
+<div>School: <%= link_to @student.school.name, school_path(@student.school) if @student.school.name %></div>
 <div>Grade: <%= @student.grade %></div>
+
+<div>
+  My Subjects: 
+  <ul>    
+    <% @student.school.subjects.each do |subject| %>
+      <li><%= link_to subject.name, subject_path(subject) %></li>
+    <% end %>
+  </ul>
+</div>
