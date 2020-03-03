@@ -8,7 +8,7 @@
   My Appointments:
   <ul>
     <% @tutor.appointments.each do |appt| %>
-      <li><%= appt.time.strftime("%m/%d/%Y") %>, with: <%= appt.student.name %></li>
+      <li><%= appt.time.strftime("%m/%d/%Y at %I:%M%p") %>, with <%= appt.student.name %>, for <%= appt.subject.name %></li>
     <% end %>
   </ul>
 </div>

@@ -76,7 +76,7 @@ tutors = [
   {name: 'Ms. Tutorson', school_id: 1},
   {name: 'Mr. Shipman', school_id: 2},
   {name: 'Ms. Boatgal', school_id: 2},
-  {name: 'Ms. Matherly', school_id: 3},
+  {name: 'Ms. Numbergal', school_id: 3},
   {name: 'Mr. Deshan', school_id: 3},
 ]
 tutors.each {|tutor| Tutor.create(tutor)}
@@ -155,3 +155,9 @@ school_subjects = [
   {school_id: 3, subject_id: 30}
 ]
 school_subjects.each {|schsub| SchoolSubject.create(schsub)}
+
+appointments = [
+  {student_id: 1, tutor_id: 1, subject_id: 1, time: "2020-03-10 13:50:00"},
+  {student_id: 2, tutor_id: 4, subject_id: 24, time: "2020-03-10 3:50:00"},
+]
+appointments.each {|appt| Appointment.create(appt)}
