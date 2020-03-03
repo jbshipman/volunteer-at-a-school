@@ -1,0 +1,7 @@
+<h1><%= @school.name %></h1>
+
+<div>
+  <% @school.students.each do |student| %>
+    <div><%= student.name %></div>
+  <% end %>
+</div>
