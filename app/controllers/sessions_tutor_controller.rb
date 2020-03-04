@@ -7,11 +7,9 @@ class SessionsTutorController < ApplicationController
     @tutor = Tutor.find_by(username: params[:username])
     if !params[:username] || params[:username].empty?
       return redirect_to root_path
-    else
+    end
       session[:tutor_id] = @tutor.id
       redirect_to tutor_path(@tutor)
-    end
-  
     end
   
     def destroy
