@@ -1,0 +1,19 @@
+<h1>New Appointment</h1>
+
+<div>
+  <%= form_for @appointment do |f| %>    
+    <p><%= f.label :select_a_subject %><br>
+    <%= f.collection_select(:subject_id, Subject.all, :id, :name, include_hidden: false) %></p>
+
+    <p><%= f.label :select_a_student %><br>
+    <%= f.collection_select(:student_id, Student.all, :id, :name, include_hidden: false) %></p>
+
+    <p><%= f.label :select_a_tutor %><br>
+    <%= f.collection_select(:tutor_id, Tutor.all, :id, :name, include_hidden: false) %></p>
+
+    <p><%= f.label :enter_a_date %><br>
+    <%= f.text_field :time, data:{ provide:'datepicker' } %></p>
+
+    <%= f.submit %>
+  <% end %>
+</div>

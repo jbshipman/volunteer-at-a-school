@@ -30,9 +30,10 @@
   <em>this form is not functioning yet, needs to be a new appointment even though it's all in the student controller and view</em>
   <%= form_for(@student) do |f| %>
     <%= f.label :subject %>
-    <%= f.collection_select(:subject_ids, @subjects, :id, :name) %><br>
+    <%= f.collection_select(:subject_ids, @subjects, :id, :name, include_hidden: false) %><br>
     <%= f.label :tutor %>
     <%= f.collection_select(:tutor_ids, @tutors, :id, :name) %><br>
+    <%= f.submit %>
   <% end %>
 </div>
 
