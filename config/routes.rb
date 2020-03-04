@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :schools, only: [:new, :create, :edit, :update]
   resources :students, only: [:index, :new, :create, :show]
   resources :tutors
+  resources :appointments
   
   root to: 'welcome#home'
 

@@ -4,13 +4,33 @@
 <div>Grade: <%= @student.grade %></div>
 
 <div>
-  My Subjects: 
-  <ul>    
-    <% @student.school.subjects.each do |subject| %>
+  My Subjects:
+  <ol>
+    <% @student.subjects.sort_by(&:name).each do |subject| %>
       <li><%= link_to subject.name, subject_path(subject) %></li>
+    <% end %>
+  </ol>
+</div>
+
+<div>
+  My tutoring appointments:<br>
+  <ul>
+    <% @student.appointments.sort_by(&:time).each do |appt| %>
+      <li><%= appt.time.strftime("%m/%d/%Y at %I:%M%p") %>, with <%= link_to appt.tutor.name, tutor_path(appt.tutor) %>, for <%= link_to appt.subject.name, subject_path(appt.subject) %></li>
     <% end %>
   </ul>
 </div>
 
+<div>
+  Book a tutoring appointment:<br>
+  <em>this form is not functioning yet, needs to be a new appointment even though it's all in the student controller and view</em>
+  <%= form_for(@student) do |f| %>
+    <%= f.label :subject %>
+    <%= f.collection_select(:subject_ids, @subjects, :id, :name) %><br>
+    <%= f.label :tutor %>
+    <%= f.collection_select(:tutor_ids, @tutors, :id, :name) %><br>
+  <% end %>
+</div>
 
- <h3><%= button_to "Logout", sessions_path, method: :delete %></h3>
+<h3><%= button_to "Logout", sessions_path, method: :delete %></h3>
+

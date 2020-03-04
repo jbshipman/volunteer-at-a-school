@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 2020_03_03_223655) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "student_subjects", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "subject_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.integer "grade"

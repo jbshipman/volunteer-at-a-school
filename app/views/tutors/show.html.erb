@@ -1,5 +1,20 @@
 <h1><%= @tutor.name %></h1>
 
+<div>
+  School: <%= link_to @tutor.school.name, school_path(@tutor.school) if @tutor.school %>
+</div>
+
+<div>
+  My Appointments:
+  <ul>
+    <% @tutor.appointments.sort_by(&:time).each do |appt| %>
+      <li><%= appt.time.strftime("%m/%d/%Y at %I:%M%p") %>, with <%= link_to appt.student.name, student_path(appt.student) %>, for <%= link_to appt.subject.name, subject_path(appt.subject) %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div><%= link_to 'Create a tutoring appointment', new_appointment_path %></div>
+
 <div>School: <%= link_to @tutor.school.name, school_path(@tutor.school) if @tutor.school %></div>
 
 <br>

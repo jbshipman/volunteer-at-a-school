@@ -2,7 +2,7 @@
 
 <div>
   <ul>
-    <% @schools.each do |school| %>
+    <% @schools.sort_by(&:name).each do |school| %>
       <li><%= link_to school.name, school_path(school) if @schools.name %></li>
     <% end %>
   </ul>
