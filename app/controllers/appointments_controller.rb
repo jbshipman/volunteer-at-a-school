@@ -5,10 +5,13 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find(params[:id])
-    # @tutor = Tutor.find(params[:id])
-    @student = Student.find(params[:id])
+    @tutor = Tutor.find(params[:id])
+   
     @subject = Subject.find(params[:id])
     @school = School.find(params[:id])
+    @student = Student.find(params[:id])
+    @filter_school_subject = @tutor.school.subjects
+    @filter_student_subject = @student.school.subjects
   end
 
   def new

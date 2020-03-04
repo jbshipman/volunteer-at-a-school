@@ -2,15 +2,12 @@
 
 <div>
   <%= form_for(@appointment) do |f| %>
-    <%= f.label :tutor %>
-    <%= f.collection_select(:tutor_id, Tutor.all, :id, :name) %><br>
-    
-    <%= f.label :subject %>
-    <%= f.collection_select(:subject_id, Subject.all, :id, :name) %><br>
-    
     <%= f.label :student %>
     <%= f.collection_select(:student_id, Student.all, :id, :name) %><br>
 
+    <%= f.label :subject %>
+    <%= f.collection_select(:subject_id, Subject.all, :id, :name) %><br>
+    
     <%= f.label :Date_and_Time %>
     <%= f.text_field :time %><br>
 

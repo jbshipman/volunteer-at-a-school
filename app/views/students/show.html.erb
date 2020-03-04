@@ -4,24 +4,20 @@
 <div>Grade: <%= @student.grade %></div>
 
 <div>
-  My tutor appointments:<br>
+  My Subjects:
+  <ol>
+    <% @student.subjects.sort_by(&:name).each do |subject| %>
+      <li><%= link_to subject.name, subject_path(subject) %></li>
+    <% end %>
+  </ol>
+</div>
+
+<div>
+  My tutoring appointments:<br>
   <ul>
     <% @student.appointments.sort_by(&:time).each do |appt| %>
       <li><%= appt.time.strftime("%m/%d/%Y at %I:%M%p") %>, with <%= appt.tutor.name %>, for <%= appt.subject.name %></li>
     <% end %>
   </ul>
-
 </div>
 
-<div>
-  <% @student.school.subjects.sort_by(&:name).each do |subject| %>
-    <%= subject.name %>
-  <% end %>
-</div>
-
-<div>
-  <%= form_for(@student) do |f| %>
-    <%= f.label :subjects %>
-    <%= f.collection_select(:subject_ids, @subjects, :id, :name) %>
-  <% end %>
-</div>
