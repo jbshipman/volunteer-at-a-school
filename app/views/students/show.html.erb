@@ -11,3 +11,7 @@
     <% end %>
   </ul>
 </div>
+
+<%= form_tag controller: 'sessions', action: 'destroy', method: 'delete' do %>
+  <input type='submit' value="Logout">
+<% end %>
