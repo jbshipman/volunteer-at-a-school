@@ -73,12 +73,12 @@ students = [
 students.each {|student| Student.create(student)}
 
 tutors = [
-  {name: 'Ms. Matherly', school_id: 1},
-  {name: 'Ms. Tutorson', school_id: 1},
-  {name: 'Mr. Shipman', school_id: 2},
-  {name: 'Ms. Boatgal', school_id: 2},
-  {name: 'Ms. Numbergal', school_id: 3},
-  {name: 'Mr. Deshan', school_id: 3},
+  {name: 'Jane Matherly', school_id: 1},
+  {name: 'Jackie Tutorson', school_id: 1},
+  {name: 'Jerry Shipman', school_id: 2},
+  {name: 'River Boatgal', school_id: 2},
+  {name: 'Celeste Numbergal', school_id: 3},
+  {name: 'Steven Deschain', school_id: 3},
 ]
 tutors.each {|tutor| Tutor.create(tutor)}
 
