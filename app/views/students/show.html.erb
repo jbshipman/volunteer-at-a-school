@@ -1,16 +1,15 @@
-<h1><%= @student.name %></h1>
+<div class="content_header"><h1><%= @student.name %></h1></div>
 
-<div>username: <%= @student.username %></div>
 <div>School: <%= link_to @student.school.name, school_path(@student.school) if @student.school.name %></div>
 <div>Grade: <%= @student.grade %></div>
 
-<div>
-  <div><h3>Core Subjects:</h3>
+<div class="content_header">
+  <div><h3>Core Subjects</h3>
     <% @student.subjects.select(&:core_subject).sort_by(&:name).each do |subject| %>
       <div><%= link_to subject.name, subject_path(subject) %></div>
     <% end %>
   </div>
-  <div><h3>Electives:</h3>
+  <div><h3>Electives</h3>
     <% @student.subjects.reject(&:core_subject).sort_by(&:name).each do |subject| %>
       <div><%= link_to subject.name, subject_path(subject) %></div>
     <% end %>

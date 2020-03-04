@@ -1,24 +1,24 @@
-<div id = "top">
+<div>
   <h1>Welcome to Volunteer Working Name App</h1>
   <p>You can log in as an existing Student or Tutor; or create a new account as a Student or Tutor</p>
 </div>
 
-<div class = "grouped_box">
-  <div class = "selection_group">
+<div>
+  <div>
     <%= form_tag controller: 'sessions', action: 'create', method: 'post' do %>
       <input name="username" type="text">
       <input type="submit" value='Student Login'>
     <% end %>
   
-    <div class = "create_button_box"><%= link_to '<button type="button">New Student</button>'.html_safe, new_student_path %></div>
+    <div><%= link_to '<button type="button">New Student</button>'.html_safe, new_student_path %></div>
   </div>
 
-  <div class = "selection_group"> 
+  <div> 
     <%= form_tag controller: 'sessions_tutor', action: 'create', method: 'post' do %>
       <input name="username" type="text">
       <input type="submit" value='Tutor Login'>
     <% end %>
   
-    <div class = "create_button_box"><%= link_to '<button type="button">New Tutor</button>'.html_safe, new_tutor_path %></div>
+    <div><%= link_to '<button type="button">New Tutor</button>'.html_safe, new_tutor_path %></div>
   </div>
 </div>
