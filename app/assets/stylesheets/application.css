@@ -13,3 +13,67 @@
  *= require_tree .
  *= require_self
  */
+
+ /*****************
+ Select everything 
+*/ 
+* {
+}
+html {
+  /* background: rgb(144,183,255); */
+  /* background: linear-gradient(180deg, rgba(144,183,255,1) 0%, rgba(255,255,255,0) 100%); */
+
+}
+
+body {
+  display: block;
+  line-height: 1em;
+  margin: 0.5em;
+}
+
+div {
+}
+
+#top {
+  background-color: cornflowerblue;
+  padding: 0.16em;
+  margin: 0.32em;
+  border-radius: 4px;
+  color: #ffffff;
+}
+.container {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+.wrapper {
+  position: relative;
+  overflow: auto;
+}
+
+.links_header{
+  margin: 0.32em;
+}
+
+.page_header {
+  
+}
+
+.grouped_box {  
+  background-color: cornflowerblue;
+  margin: 0.32em;
+  padding: 0.16em;
+  border-radius: 4px;
+  float: left;
+}
+
+.selection_group {
+  background-color: rgba(0,0,0,0.4);
+  margin: 0.16em;
+  padding: 0.16em;
+  border-radius: 4px;
+}
+
+.create_button_box {
+  margin-top: 0.64em;
+}

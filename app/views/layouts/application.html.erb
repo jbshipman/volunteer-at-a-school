@@ -10,9 +10,10 @@
   </head>
 
   <body>
-    <div><%= link_to 'Students', students_path %> | <%= link_to 'Tutors', tutors_path %> | <%= link_to 'Schools', schools_path %> | <%= link_to 'Subjects', subjects_path %></div>
+    <div class="container wrapper">
+      <div class = "links_header"><%= link_to 'Students', students_path %> | <%= link_to 'Tutors', tutors_path %> | <%= link_to 'Schools', schools_path %> | <%= link_to 'Subjects', subjects_path %></div>
 
     <%= yield %>
-
+    </div>
   </body>
 </html>
