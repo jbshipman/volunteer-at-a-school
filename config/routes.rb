@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   resources :subjects, only: [:new, :create, :destroy]
   resources :schools, only: [:new, :create, :edit, :update]
-  resources :students, only: [:new, :create, :show]
+  resources :students, only: [:index, :new, :create, :show]
   resources :tutors
   
   root to: 'welcome#home'
 
-  #get '/students/new', to: 'students#new'
 
   get '/sessions', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'
