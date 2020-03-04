@@ -4,12 +4,15 @@ class StudentsController < ApplicationController
   def index
     @students = Student.all
     @appointments = Appointment.all
+    # @schools = School.all
   end
 
   def show
     @student = Student.find(params[:id])
+    # @school = School.find(params[:id])
     @subjects = @student.subjects.sort_by(&:name)
     @tutors = @student.school.tutors.sort_by(&:name)
+    # @school_subjects = @school.subjects.sort_by(&:name)
     
     # below breaks when @student id is greater than the last appointment id
     # because the controller is passing in student id 

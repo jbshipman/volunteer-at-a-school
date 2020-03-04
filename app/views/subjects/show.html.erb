@@ -1,6 +1,10 @@
 <h1><%= @subject.name %></h1>
 
 <div>
+  Core Subject: <%= @subject.core_subject %>
+</div>
+
+<div>
   Taught at: 
   <ul>
     <% @subject.schools.sort_by(&:name).each do |school| %>

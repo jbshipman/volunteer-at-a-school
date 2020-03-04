@@ -1,8 +1,7 @@
 <h1><%= @tutor.name %></h1>
 
-<div>
-  School: <%= link_to @tutor.school.name, school_path(@tutor.school) if @tutor.school %>
-</div>
+<div>Username: <%= @tutor.username %></div>
+<div>School: <%= link_to @tutor.school.name, school_path(@tutor.school) if @tutor.school %></div>
 
 <div>
   My Appointments:
@@ -13,9 +12,4 @@
   </ul>
 </div>
 
-<div><%= link_to 'Create a tutoring appointment', new_appointment_path %></div>
-
-<div>School: <%= link_to @tutor.school.name, school_path(@tutor.school) if @tutor.school %></div>
-
-<br>
-<h3><%= button_to "Logout", sessions_tutor_path, method: :delete %></h3>
+<div><h3><%= button_to "Logout", sessions_tutor_path, method: :delete %></h3></div>

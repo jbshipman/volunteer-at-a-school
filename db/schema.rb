@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_223655) do
 
   create_table "subjects", force: :cascade do |t|
     t.string "name"
+    t.boolean "core_subject"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
