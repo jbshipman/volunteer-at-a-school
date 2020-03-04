@@ -14,7 +14,7 @@
     <p><%= f.label :grade %><br>
     <%= f.number_field :grade %></p>
 
-    <p><%= f.label :select_five_subjects %><br>
+    <p><%= f.label :select_subjects %><br>
     <%= f.collection_check_boxes(:subject_ids, Subject.all, :id, :name) %></p>
 
     <%= f.submit %>
