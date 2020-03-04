@@ -1,3 +1,18 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.background {
+    background: url(marketing-school-business-idea-21696.jpg);
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    
+}
+
+body {
+    margin: 0;
+}
+
+.welcome { 
+  color: whitesmoke;
+}
