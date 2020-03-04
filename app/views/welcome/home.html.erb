@@ -1,0 +1,27 @@
+<h1>Welcome</h1>
+<h3>this is the home page</h3>
+
+
+<%= form_tag controller: 'sessions', action: 'create', method: 'post' do %>
+  <input name="username" type="text">
+  <input type="submit" value='Student Login'>
+<% end %>
+
+<br>
+<br>
+<%= link_to '<button type="button">New Student</button>'.html_safe, new_student_path %>
+
+<br>
+<br>
+
+<%= form_tag controller: 'sessions_tutor', action: 'create', method: 'post' do %>
+  <input name="username" type="text">
+  <input type="submit" value='Tutor Login'>
+<% end %>
+
+<br>
+<br>
+
+<%= link_to '<button type="button">New Tutor</button>'.html_safe, new_tutor_path %>
+
+

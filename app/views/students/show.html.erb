@@ -31,3 +31,6 @@
     <%= f.collection_select(:tutor_ids, @tutors, :id, :name) %><br>
   <% end %>
 </div>
+
+<h3><%= button_to "Logout", sessions_path, method: :delete %></h3>
+
