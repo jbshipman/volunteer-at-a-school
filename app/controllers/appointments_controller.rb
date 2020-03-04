@@ -15,24 +15,21 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @appointment = Appointment.new
   end
 
   def edit
   end
 
   def create
-    byebug
     @appointment = Appointment.new(appointment_params)
 
     if @appointment.valid?
    
       @appointment.save
-
-
       redirect_to appointment_path(@appointment)
     else
-      render 'new'
+      @student = Student.find_by(params[:student_id])
+      redirect_to student_path(@student)
     end 
   end
 
@@ -44,6 +41,6 @@ class AppointmentsController < ApplicationController
 
   private
     def appointment_params
-      params.require(:appointment).permit(:school_id, :student_id, :tutor_id, :time, :subject_ids => [])
+      params.require(:appointment).permit(:student_id, :subject_id, :tutor_id, :time_id)
     end 
 end

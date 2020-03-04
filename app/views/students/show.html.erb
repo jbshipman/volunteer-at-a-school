@@ -1,6 +1,5 @@
 <h1><%= @student.name %></h1>
 
-<div>username: <%= @student.username %></div>
 <div>School: <%= link_to @student.school.name, school_path(@student.school) if @student.school.name %></div>
 <div>Grade: <%= @student.grade %></div>
 
@@ -28,12 +27,20 @@
 <div>
   Book a tutoring appointment:<br>
   <em>this form is not functioning yet, needs to be a new appointment even though it's all in the student controller and view</em>
-  <%= form_for(@student) do |f| %>
-    <%= f.label :subject %>
-    <%= f.collection_select(:subject_ids, @subjects, :id, :name, include_hidden: false) %><br>
-    <%= f.label :tutor %>
-    <%= f.collection_select(:tutor_ids, @tutors, :id, :name) %><br>
-    <%= f.submit %>
+ 
+  <%= form_for(@appointment) do |f| %>
+    <%= f.hidden_field :student_id , value: @student.id %>
+   
+    <%= f.label "Select a Subject: " %>
+    <%= f.collection_select(:subject_id, @subjects, :id, :name, include_hidden: false) %><br>
+    <br>
+    <%= f.label "Select a Tutor: " %>
+    <%= f.collection_select(:tutor_id, @tutors, :id, :name, include_hidden: false) %>
+    <br>
+    <%= f.label "Select a Time" %>
+    <%= f.collection_select(:time_id, Schedule.all, :id, :time) %>
+    <br>
+    <%= f.submit "Schedule a Tutor Appointment" %>
   <% end %>
 </div>
 

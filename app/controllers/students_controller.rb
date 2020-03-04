@@ -8,13 +8,14 @@ class StudentsController < ApplicationController
 
   def show
     @student = Student.find(params[:id])
+    @appointment = Appointment.new
+    
     @subjects = @student.subjects.sort_by(&:name)
     @tutors = @student.school.tutors.sort_by(&:name)
   end
 
   def new
     @student = Student.new
-    @appointment = Appointment.new
   end
 
   def edit
