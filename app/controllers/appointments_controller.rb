@@ -8,6 +8,7 @@ class AppointmentsController < ApplicationController
     # @tutor = Tutor.find(params[:id])
     @student = Student.find(params[:id])
     @subject = Subject.find(params[:id])
+    @school = School.find(params[:id])
   end
 
   def new

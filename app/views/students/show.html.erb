@@ -14,10 +14,14 @@
 </div>
 
 <div>
-  My Subjects: 
-  <ul>    
-    <% @student.school.subjects.sort_by(&:name).each do |subject| %>
-      <li><%= link_to subject.name, subject_path(subject) %></li>
-    <% end %>
-  </ul>
+  <% @student.school.subjects.sort_by(&:name).each do |subject| %>
+    <%= subject.name %>
+  <% end %>
+</div>
+
+<div>
+  <%= form_for(@student) do |f| %>
+    <%= f.label :subjects %>
+    <%= f.collection_select(:subject_ids, @subjects, :id, :name) %>
+  <% end %>
 </div>

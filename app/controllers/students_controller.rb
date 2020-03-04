@@ -5,6 +5,7 @@ class StudentsController < ApplicationController
 
   def show
     @student = Student.find(params[:id])
+    @subjects = @student.school.subjects.sort_by(&:name)
   end
 
   def new
