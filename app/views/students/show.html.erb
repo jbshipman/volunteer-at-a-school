@@ -12,6 +12,5 @@
   </ul>
 </div>
 
-<%= form_tag controller: 'sessions', action: 'destroy', method: 'delete' do %>
-  <input type='submit' value="Logout">
-<% end %>
+
+ <h3><%= button_to "Logout", sessions_path, method: :delete %></h3>
