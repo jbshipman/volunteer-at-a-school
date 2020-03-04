@@ -21,7 +21,6 @@ class StudentsController < ApplicationController
   end
 
   def create
-    byebug
     @student = Student.new(student_params)
     
     if @student.valid?

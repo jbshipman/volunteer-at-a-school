@@ -5,11 +5,13 @@ class TutorsController < ApplicationController
     @tutors = Tutor.all 
   end
 
+  def new
+    @tutor = Tutor.new
+
+  end
+
   def show
     @tutor = Tutor.find(params[:id])
-    # @appointment = Appointment.find(params[:appointment_id])
-    @student = Student.find(params[:id])
-    @subject = Subject.find(params[:id])
   end
 
   def new
