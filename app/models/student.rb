@@ -5,6 +5,6 @@ class Student < ApplicationRecord
   has_many :subjects, through: :student_subjects
   
   has_many :appointments
-  has_many :tutors, through: :appointments
+  has_many :tutors, through: :appointmentsSt
 
 end

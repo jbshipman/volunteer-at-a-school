@@ -4,14 +4,15 @@ class AppointmentsController < ApplicationController
   end
 
   def show
+    
     @appointment = Appointment.find(params[:id])
-    @tutor = Tutor.find(params[:id])
+  #   @tutor = Tutor.find(params[:id])
    
-    @subject = Subject.find(params[:id])
-    @student = Student.find(params[:id])
-    @school = School.find(params[:id])
-    @filter_school_subject = @tutor.school.subjects
-    @filter_student_subject = @student.school.subjects
+  #   @subject = Subject.find(params[:id])
+  #   @student = Student.find(params[:id])
+  #   @school = School.find(params[:id])
+  #   @filter_school_subject = @tutor.school.subjects
+  #   @filter_student_subject = @student.school.subjects
   end
 
   def new
@@ -31,16 +32,21 @@ class AppointmentsController < ApplicationController
   end
 
   def edit
+    @appointment = Appointment.find(params[:id])
   end
 
   def update
+    @appointment = Appointment.find(params[:id])
   end
 
   def destroy
+    @appointment = Appointment.find(params[:id])
+    @appointment.destroy
+    redirect_to student_path(@appointment.student)
   end
 
   private
     def appointment_params
-      params.require(:appointment).permit(:student_id, :subject_id, :tutor_id, :time_id)
+      params.require(:appointment).permit(:student_id, :subject_id, :tutor_id, :day, :time)
     end 
 end

@@ -10,33 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_024448) do
-
-  create_table "appointment_days", force: :cascade do |t|
-    t.integer "appointment_id"
-    t.integer "day_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "appointment_schedules", force: :cascade do |t|
-    t.integer "appointment_id"
-    t.integer "schedule_id"
-  end
+ActiveRecord::Schema.define(version: 2020_03_05_161613) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer "student_id"
     t.integer "tutor_id"
     t.integer "subject_id"
-  end
-
-  create_table "days", force: :cascade do |t|
     t.string "day"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "schedules", force: :cascade do |t|
     t.string "time"
   end
 

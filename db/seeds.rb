@@ -21,17 +21,6 @@ Subject.create(name: "World Geography", core_subject: 1)
 Subject.create(name: "Advanced Art Studio", core_subject: 0)
 Subject.create(name: "Physical Education", core_subject: 0)
 
-Schedule.create(time: "4:00 pm")
-Schedule.create(time: "4:30 pm")
-Schedule.create(time: "5:00 pm")
-Schedule.create(time: "5:30 pm")
-Schedule.create(time: "10:30 am")
-Schedule.create(time: "11:30 am")
-
-Day.create(day: "Tuesday")
-Day.create(day: "Wednesday")
-Day.create(day: "Thursday")
-Day.create(day: "Saturday")
 
 # Student.destroy_all
 # Tutor.destroy_all
