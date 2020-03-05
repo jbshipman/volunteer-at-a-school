@@ -7,4 +7,7 @@ class Student < ApplicationRecord
   has_many :appointments
   has_many :tutors, through: :appointments
 
+  validates :name, presence: true 
+  validates :username, {presence: true, uniqueness: true}
+  validates :grade, numericality: {presence: true, greater_than: 5, less_than: 13}
 end
