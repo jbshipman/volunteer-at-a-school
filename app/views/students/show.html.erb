@@ -20,9 +20,10 @@
   <ul>
     <% @student.appointments.each do |appointment| %>
      <li><%= link_to appointment.subject.name, appointment_path(appointment) %></li>
-      <br>
       <%= appointment.day %>
       <%= appointment.time %>
+      <br>
+      <br>
     <% end %>
   </ul>
 </div>
