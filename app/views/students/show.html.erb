@@ -1,22 +1,22 @@
-<h1><%= @student.name %></h1>
+<div class="content_header"><h1><%= @student.name %></h1></div>
 
 <div>School: <%= link_to @student.school.name, school_path(@student.school) if @student.school.name %></div>
 <div>Grade: <%= @student.grade %></div>
 
 <div>
-  <div><h3>Core Subjects:</h3>
+  <div class="content_header"><h3>Core Subjects</h3>
     <% @student.subjects.select(&:core_subject).sort_by(&:name).each do |subject| %>
       <div><%= link_to subject.name, subject_path(subject) %></div>
     <% end %>
   </div>
-  <div><h3>Electives:</h3>
+  <div class="content_header"><h3>Electives</h3>
     <% @student.subjects.reject(&:core_subject).sort_by(&:name).each do |subject| %>
       <div><%= link_to subject.name, subject_path(subject) %></div>
     <% end %>
 </div>
 
 <div>
-  <h3>My tutoring appointments:</h3>
+  <div class="content_header"><h3>My tutoring appointments:</h3>
   <ul>
     <% @student.appointments.each do |appointment| %>
      <li><%= link_to appointment.subject.name, appointment_path(appointment) %></li>
@@ -26,7 +26,9 @@
       <br>
     <% end %>
   </ul>
+  </div>
 </div>
+
 
 <div>
   <strong>Book a tutoring appointment: </strong><br>

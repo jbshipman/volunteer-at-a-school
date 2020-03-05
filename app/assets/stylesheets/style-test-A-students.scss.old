@@ -1,0 +1,21 @@
+// Place all the styles related to the students controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+#student_class_container {
+  clear: left;
+}
+
+// .school_grade_boxes {
+//   margin: 0.32em;
+//   padding: 0.16em;
+//   border-radius: 4px;
+//   background-color: cornflowerblue;
+//   float: left;
+// }
+
+.appointment_list {
+  clear: left;
+  margin: 0.32em;
+  border-top: double;
+}
