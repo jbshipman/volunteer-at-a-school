@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :authorized_student, only: [:index, :show]
+  before_action :authorized_student, only: [:index, :show, :edit, :update, :destroy]
 
   def index
     @students = Student.all
@@ -8,20 +8,20 @@ class StudentsController < ApplicationController
 
   def show
     @student = Student.find(params[:id])
+    @appointment = Appointment.new
+    
     @subjects = @student.subjects.sort_by(&:name)
     @tutors = @student.school.tutors.sort_by(&:name)
   end
 
   def new
     @student = Student.new
-    @appointment = Appointment.new
   end
 
   def edit
   end
 
   def create
-    byebug
     @student = Student.new(student_params)
     
     if @student.valid?

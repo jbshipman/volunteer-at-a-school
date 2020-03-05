@@ -5,11 +5,13 @@ class SessionsTutorController < ApplicationController
   
   def create 
     @tutor = Tutor.find_by(username: params[:username])
-    if !params[:username] || params[:username].empty?
+    
+    if @tutor == nil
       return redirect_to root_path
     end
-      session[:tutor_id] = @tutor.id
-      redirect_to tutor_path(@tutor)
+    session[:tutor_id] = @tutor.id
+    redirect_to tutor_path(@tutor)
+    
     end
   
     def destroy

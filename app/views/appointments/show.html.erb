@@ -1,2 +1,35 @@
-<h1>Apppointments#show</h1>
-<p>Find me in app/views/apppointments/show.html.erb</p>
+<% if session[:tutor_id] %>
+  <h1><%= @appointment.tutor.name %>, these are your scheduled appointments.</h1>
+  <strong><%= @appointment.subject.name %></strong>
+  <br>
+  <br>
+  <%= @appointment.day %>
+  <br>
+  <%= @appointment.time %>
+  <br>
+  <%= link_to '<button type="button">Return to Your Home Page</button>'.html_safe, tutor_path(@appointment.tutor) %>
+  <div><h3><%= button_to "Logout", sessions_tutor_path, method: :delete %></h3></div>
+
+<% end %>
+
+<% if session[:student_id] %>
+
+<h1><%= @appointment.student.name %>, you successfully scheduled this appointment.</h1>
+<br>
+
+<strong><%= @appointment.subject.name %></strong>
+<br>
+<br>
+<%= @appointment.day %>
+<br>
+<%= @appointment.time %>
+<br>
+<%= link_to '<button type="button">Return to Your Home Page</button>'.html_safe, student_path(@appointment.student) %>
+<br>
+<h3><%= button_to "Logout", sessions_path, method: :delete %></h3>
+<% end %>
+<br>
+<br>
+
+
+<h3> <%= button_to "Delete Appointment", appointment_path(@appointment), method: :delete %> </h3>

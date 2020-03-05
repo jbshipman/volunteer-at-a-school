@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
 
   def create 
     @student = Student.find_by(username: params[:username])
-    if !params[:username] || params[:username].empty?
+    
+    if @student == nil
       return redirect_to root_path
     end
       session[:student_id] = @student.id
