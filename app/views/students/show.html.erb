@@ -3,28 +3,29 @@
 <div>School: <%= link_to @student.school.name, school_path(@student.school) if @student.school.name %></div>
 <div>Grade: <%= @student.grade %></div>
 
-<div class="content_header">
-  <div><h3>Core Subjects</h3>
+<div>
+  <div class="content_header"><h3>Core Subjects</h3>
     <% @student.subjects.select(&:core_subject).sort_by(&:name).each do |subject| %>
       <div><%= link_to subject.name, subject_path(subject) %></div>
     <% end %>
   </div>
-  <div><h3>Electives</h3>
+  <div class="content_header"><h3>Electives</h3>
     <% @student.subjects.reject(&:core_subject).sort_by(&:name).each do |subject| %>
       <div><%= link_to subject.name, subject_path(subject) %></div>
     <% end %>
 </div>
 
 <div>
-  <h3>My tutoring appointments:</h3>
+  <div class="content_header"><h3>My tutoring appointments:</h3>
   <ul>
     <% @student.appointments.sort_by(&:time).each do |appt| %>
       <li><%= appt.time.strftime("%m/%d/%Y at %I:%M%p") %>, with <%= link_to appt.tutor.name, tutor_path(appt.tutor) %>, for <%= link_to appt.subject.name, subject_path(appt.subject) %></li>
     <% end %>
   </ul>
+  </div>
 </div>
 
-<div>
+<div class="content_header">
   Book a tutoring appointment:<br>
   <em>this form is not functioning yet, needs to be a new appointment even though it's all in the student controller and view</em>
   <%= form_for(@student) do |f| %>

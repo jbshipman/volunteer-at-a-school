@@ -38,7 +38,6 @@ body {
   overflow-x: hidden;
 }
 
-
 /* Side navigation links */
 .sidenav a {
   color: white;
@@ -58,3 +57,11 @@ body {
   margin-left: 10em;
   padding-left: 1.28em;
 }
+
+.content_header {
+  margin: unset;
+  background: rgba(0,0,0,0.1);
+  padding-left: 0.16em;
+  padding-right: 0.16em;
+}
+
