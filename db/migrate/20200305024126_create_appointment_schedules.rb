@@ -3,7 +3,6 @@ class CreateAppointmentSchedules < ActiveRecord::Migration[6.0]
     create_table :appointment_schedules do |t|
       t.integer :appointment_id
       t.integer :schedule_id
-      t.timestamps
     end
   end
 end

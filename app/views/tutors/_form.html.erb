@@ -1,15 +1,20 @@
-<h1>New Tutor</h1>
+<h1>Create an Account to Tutor a Student</h1>
 
 <div>
   <%= form_for @tutor do |f| %>
-    <p><%= f.label :name %><br>
+    <p><%= f.label "Name: " %><br>
     <%= f.text_field :name %></p>
    
-    <p><%= f.label :create_a_username %><br>
+    <p><%= f.label "Enter a username: " %><br>
     <%= f.text_field :username %></p>
    
-    <p><%= f.label :select_a_school %><br>
+    <p><%= f.label "Select a school to volunteer at: " %><br>
     <%= f.collection_select(:school_id, School.all, :id, :name) %></p>
+
+    <p>
+      <%= f.label "Bio: " %>
+      <%= f.text_area :bio %>
+    </p>
 
     <%= f.submit %>
   <% end %>

@@ -37,8 +37,11 @@
     <%= f.label "Select a Tutor: " %>
     <%= f.collection_select(:tutor_id, @tutors, :id, :name, include_hidden: false) %>
     <br>
+    <%= f.label "Select a Day" %>
+    <%= f.collection_select(:day_ids, Day.all, :id, :day) %>
+    <br>
     <%= f.label "Select a Time" %>
-    <%= f.collection_select(:time_id, Schedule.all, :id, :time) %>
+    <%= f.collection_select(:schedule_ids, Schedule.all, :id, :time) %>
     <br>
     <%= f.submit "Schedule a Tutor Appointment" %>
   <% end %>

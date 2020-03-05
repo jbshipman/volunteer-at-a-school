@@ -5,21 +5,12 @@ class TutorsController < ApplicationController
     @tutors = Tutor.all 
   end
 
-  def new
-    @tutor = Tutor.new
-
-  end
-
   def show
     @tutor = Tutor.find(params[:id])
   end
 
   def new
     @tutor = Tutor.new
-
-  end
-
-  def edit
   end
 
   def create
@@ -35,6 +26,9 @@ class TutorsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
   end
 
@@ -44,6 +38,6 @@ class TutorsController < ApplicationController
   private
 
   def tutor_params
-    params.require(:tutor).permit(:name, :username, :school_id)
+    params.require(:tutor).permit(:name, :username, :bio, :school_id)
   end
 end

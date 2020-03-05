@@ -17,9 +17,6 @@ class AppointmentsController < ApplicationController
   def new
   end
 
-  def edit
-  end
-
   def create
     @appointment = Appointment.new(appointment_params)
 
@@ -31,6 +28,9 @@ class AppointmentsController < ApplicationController
       @student = Student.find_by(params[:student_id])
       redirect_to student_path(@student)
     end 
+  end
+
+  def edit
   end
 
   def update
