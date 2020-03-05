@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :authorized_student, only: [:index, :show]
+  before_action :authorized_student, only: [:index, :show, :edit, :update, :destroy]
 
   def index
     @students = Student.all
