@@ -10,9 +10,12 @@
   </head>
 
   <body>
-    <div><%= link_to 'Students', students_path %> | <%= link_to 'Tutors', tutors_path %> | <%= link_to 'Schools', schools_path %> | <%= link_to 'Subjects', subjects_path %></div>
+    <div class="sidenav"><%= link_to 'Students', students_path %> | <%= link_to 'Tutors', tutors_path %> | <%= link_to 'Schools', schools_path %> | <%= link_to 'Subjects', subjects_path %></div>
 
-    <%= yield %>
+
+    <div class="content">
+      <%= yield %>
+    </div>
 
   </body>
 </html>

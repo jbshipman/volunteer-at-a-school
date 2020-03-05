@@ -5,6 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Student.destroy_all
+Tutor.destroy_all
+SchoolSubject.destroy_all
+StudentSubject.destroy_all
+School.destroy_all
+Subject.destroy_all
+Appointment.destroy_all
+
+
 School.create(name: "Cedar Park Middle School")
 School.create(name: "Cedar Park High School")
 School.create(name: "Vista Ridge High School")
@@ -20,15 +30,6 @@ Subject.create(name: "English", core_subject: 1)
 Subject.create(name: "World Geography", core_subject: 1)
 Subject.create(name: "Advanced Art Studio", core_subject: 0)
 Subject.create(name: "Physical Education", core_subject: 0)
-
-
-# Student.destroy_all
-# Tutor.destroy_all
-# SchoolSubject.destroy_all
-# StudentSubject.destroy_all
-# School.destroy_all
-# Subject.destroy_all
-
 
 # schools = [
 #   {name: 'High School High'},
@@ -71,22 +72,22 @@ Subject.create(name: "Physical Education", core_subject: 0)
 # ]
 # subjects.each {|subject| Subject.create(subject)}
 
-# students = [
-#   {name: 'Raven', grade: 12, school_id: 1, username: 'raven'},
-#   {name: 'Roland', grade: 12, school_id: 1, username: 'roland'},
-#   {name: 'Naomi', grade: 12, school_id: 2, username: 'naomi'},
-#   {name: 'Chester', grade: 12, school_id: 3, username: 'chester'},
-#   {name: 'Jackie', grade: 11, school_id: 1, username: 'jackie'},
-#   {name: 'June', grade: 11, school_id: 2, username: 'june'},
-#   {name: 'Nox', grade: 11, school_id: 2, username: 'nox'},
-#   {name: 'Harry', grade: 10, school_id: 3, username: 'harry'},
-#   {name: 'Ron', grade: 10, school_id: 3, username: 'ron'},
-#   {name: 'Bobby', grade: 10, school_id: 1, username: 'bobby'},
-#   {name: 'Valerie', grade: 9, school_id: 1, username: 'valerie'},
-#   {name: 'Terry', grade: 9, school_id: 3, username: 'terry'},
-#   {name: 'Lugh', grade: 9, school_id: 2, username: 'lugh'}
-# ]
-# students.each {|student| Student.create(student)}
+students = [
+  {name: 'Raven', grade: 12, school_id: 1, username: 'raven'},
+  {name: 'Roland', grade: 12, school_id: 1, username: 'roland'},
+  {name: 'Naomi', grade: 12, school_id: 2, username: 'naomi'},
+  {name: 'Chester', grade: 12, school_id: 3, username: 'chester'},
+  {name: 'Jackie', grade: 11, school_id: 1, username: 'jackie'},
+  {name: 'June', grade: 11, school_id: 2, username: 'june'},
+  {name: 'Nox', grade: 11, school_id: 2, username: 'nox'},
+  {name: 'Harry', grade: 10, school_id: 3, username: 'harry'},
+  {name: 'Ron', grade: 10, school_id: 3, username: 'ron'},
+  {name: 'Bobby', grade: 10, school_id: 1, username: 'bobby'},
+  {name: 'Valerie', grade: 9, school_id: 1, username: 'valerie'},
+  {name: 'Terry', grade: 9, school_id: 3, username: 'terry'},
+  {name: 'Lugh', grade: 9, school_id: 2, username: 'lugh'}
+]
+students.each {|student| Student.create(student)}
 
 # tutors = [
 #   {name: 'Jane Matherly', school_id: 1, username: 'jm'},
@@ -98,15 +99,15 @@ Subject.create(name: "Physical Education", core_subject: 0)
 # ]
 # tutors.each {|tutor| Tutor.create(tutor)}
 
-# school_subjects = [
-#   {school_id: 1, subject_id: 1},
-#   {school_id: 1, subject_id: 2},
-#   {school_id: 1, subject_id: 3},
-#   {school_id: 1, subject_id: 4},
-#   {school_id: 1, subject_id: 5},
-#   {school_id: 1, subject_id: 6},
-#   {school_id: 1, subject_id: 7},
-#   {school_id: 1, subject_id: 8},
+school_subjects = [
+  {school_id: 1, subject_id: 1},
+  {school_id: 1, subject_id: 2},
+  {school_id: 1, subject_id: 3},
+  {school_id: 1, subject_id: 4},
+  {school_id: 1, subject_id: 5},
+  {school_id: 1, subject_id: 6},
+  {school_id: 1, subject_id: 7},
+  {school_id: 1, subject_id: 8},
 #   {school_id: 1, subject_id: 9},
 #   {school_id: 1, subject_id: 10},
 #   {school_id: 1, subject_id: 11},
@@ -129,14 +130,14 @@ Subject.create(name: "Physical Education", core_subject: 0)
 #   {school_id: 1, subject_id: 28},
 #   {school_id: 1, subject_id: 29},
 #   {school_id: 1, subject_id: 30},
-#   {school_id: 2, subject_id: 1},
-#   {school_id: 2, subject_id: 2},
-#   {school_id: 2, subject_id: 3},
-#   {school_id: 2, subject_id: 4},
-#   {school_id: 2, subject_id: 5},
-#   {school_id: 2, subject_id: 6},
-#   {school_id: 2, subject_id: 7},
-#   {school_id: 2, subject_id: 8},
+  {school_id: 2, subject_id: 1},
+  {school_id: 2, subject_id: 2},
+  {school_id: 2, subject_id: 3},
+  {school_id: 2, subject_id: 4},
+  {school_id: 2, subject_id: 5},
+  {school_id: 2, subject_id: 6},
+  {school_id: 2, subject_id: 7},
+  {school_id: 2, subject_id: 8},
 #   {school_id: 2, subject_id: 9},
 #   {school_id: 2, subject_id: 10},
 #   {school_id: 2, subject_id: 11},
@@ -158,14 +159,14 @@ Subject.create(name: "Physical Education", core_subject: 0)
 #   {school_id: 2, subject_id: 28},
 #   {school_id: 2, subject_id: 29},
 #   {school_id: 2, subject_id: 30},
-#   {school_id: 3, subject_id: 1},
-#   {school_id: 3, subject_id: 2},
-#   {school_id: 3, subject_id: 3},
-#   {school_id: 3, subject_id: 4},
-#   {school_id: 3, subject_id: 5},
-#   {school_id: 3, subject_id: 6},
-#   {school_id: 3, subject_id: 7},
-#   {school_id: 3, subject_id: 8},
+  {school_id: 3, subject_id: 1},
+  {school_id: 3, subject_id: 2},
+  {school_id: 3, subject_id: 3},
+  {school_id: 3, subject_id: 4},
+  {school_id: 3, subject_id: 5},
+  {school_id: 3, subject_id: 6},
+  {school_id: 3, subject_id: 7},
+  {school_id: 3, subject_id: 8},
 #   {school_id: 3, subject_id: 9},
 #   {school_id: 3, subject_id: 10},
 #   {school_id: 3, subject_id: 11},
@@ -188,8 +189,8 @@ Subject.create(name: "Physical Education", core_subject: 0)
 #   {school_id: 3, subject_id: 28},
 #   {school_id: 3, subject_id: 29},
 #   {school_id: 3, subject_id: 30}
-# ]
-# school_subjects.each {|schsub| SchoolSubject.create(schsub)}
+]
+school_subjects.each {|schsub| SchoolSubject.create(schsub)}
 
 # appointments = [
 #   {student_id: 4, tutor_id: 6, subject_id: 16, time: "2020-03-10 13:50:00"},
