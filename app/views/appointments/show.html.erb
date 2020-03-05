@@ -1,3 +1,18 @@
+<% if session[:tutor_id] %>
+  <h1><%= @appointment.tutor.name %>, these are your scheduled appointments.</h1>
+  <strong><%= @appointment.subject.name %></strong>
+  <br>
+  <br>
+  <%= @appointment.day %>
+  <br>
+  <%= @appointment.time %>
+  <br>
+  <div><h3><%= button_to "Logout", sessions_tutor_path, method: :delete %></h3></div>
+
+<% end %>
+
+<% if session[:student_id] %>
+
 <h1><%= @appointment.student.name %>, these are your scheduled appointments.</h1>
 <strong><%= @appointment.subject.name %></strong>
 <br>
@@ -5,6 +20,9 @@
 <%= @appointment.day %>
 <br>
 <%= @appointment.time %>
+<br>
+<h3><%= button_to "Logout", sessions_path, method: :delete %></h3>
+<% end %>
 <br>
 <br>
 
