@@ -24,6 +24,7 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: azure;
 }
 
 /* Style the side navigation */
@@ -34,7 +35,7 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.7);
   overflow-x: hidden;
 }
 
@@ -60,14 +61,14 @@ body {
 
 .content_header {
   /* margin: unset; */
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.2);
   padding-left: 0.16em;
   padding-right: 0.16em;
   
 }
 
 .grouped_box {  
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.2);
   margin: 0.16em;
   padding: 0.16em;
   /* border-radius: 4px; */
@@ -76,7 +77,7 @@ body {
 }
 
 .selection_group {
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.2);
   margin: 0.16em;
   padding: 0.32em;
   /* border-radius: 4px; */
