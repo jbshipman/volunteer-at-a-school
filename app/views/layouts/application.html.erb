@@ -9,10 +9,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <div><%= link_to 'Students', students_path %> | <%= link_to 'Tutors', tutors_path %> | <%= link_to 'Schools', schools_path %> | <%= link_to 'Subjects', subjects_path %> | <%= link_to 'New Appointment', new_appointment_path %></div>
+  <body class="bg-image">
+    <div class="sidenav"><%= link_to 'Students', students_path %> <%= link_to 'Tutors', tutors_path %> <%= link_to 'Schools', schools_path %> <%= link_to 'Subjects', subjects_path %></div>
 
-    <%= yield %>
+    <div class="content">
+      <%= yield %>
+    </div>
 
   </body>
 </html>

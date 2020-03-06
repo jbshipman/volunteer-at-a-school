@@ -1,0 +1,17 @@
+ <%= form_for(@appointment) do |f| %>
+    <%= f.hidden_field :student_id , value: @student.id %>
+   
+    <%= f.label "Select a Subject: " %>
+    <%= f.collection_select(:subject_id, @subjects, :id, :name, include_hidden: false) %><br>
+    <br>
+    <%= f.label "Select a Tutor: " %>
+    <%= f.collection_select(:tutor_id, @tutors, :id, :name, include_hidden: false) %>
+    <br>
+    <%= f.label "Select a Day: " %>
+    <%= f.select :day, ["Tuesday", "Wednesday", "Thursday", "Saturday"] %>
+    <br>
+    <%= f.label "Select a Time: " %>
+    <%= f.select :time, ["4:00 pm", "5:00 pm", "6:00 pm", "10:30 am", "11:30 am"] %>
+    <br>
+    <%= f.submit %>
+  <% end %>

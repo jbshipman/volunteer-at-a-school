@@ -1,28 +1,40 @@
-<h1><%= @school.name %></h1>
+<div class="content_header"><h1><%= @school.name %></h1></div>
 
-<div>
-  Our Students: 
-  <ul>
+<div class=grouped_box>
+  <div class="selection_group">
+    <div><h2>Core Subjects:</h2></div>
+    <div>
+      <% @school.subjects.select(&:core_subject).sort_by(&:name).each do |subject| %>
+        <div><%= link_to subject.name, subject_path(subject) if @school.subjects.name %></div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="selection_group">
+  <div><h2>Electives:</h2></div>
+    <div>
+      <% @school.subjects.reject(&:core_subject).sort_by(&:name).each do |subject| %>
+        <div><%= link_to subject.name, subject_path(subject) if @school.subjects.name %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="grouped_box">
+  <div class="selection_group"><h2>Our Students: </h2>
+  <div>
     <% @school.students.sort_by(&:name).each do |student| %>
-      <li><%= link_to student.name, student_path(student) if @school.students.name %></li>
+      <div><%= link_to student.name, student_path(student) if @school.students.name %></div>
     <% end %>
-  </ul>
-</div>
+  </div>
+  </div>
 
-<div>
-  Our Tutors: 
-  <ul>
-    <% @school.tutors.sort_by(&:name).each do |tutor| %>
-      <li><%= link_to tutor.name, tutor_path(tutor) if @school.tutors.name %></li>
-    <% end %>
-  </ul>
-</div>
-
-<div>
-  What We Teach: 
-  <ul>
-    <% @school.subjects.sort_by(&:name).each do |subject| %>
-      <li><%= link_to subject.name, subject_path(subject) if @school.subjects.name %></li>
-    <% end %>
-  </ul>
+  <div class="selection_group">
+    <div><h2>Our Tutors: </h2></div>
+    <div>
+      <% @school.tutors.sort_by(&:name).each do |tutor| %>
+        <div><%= link_to tutor.name, tutor_path(tutor) if @school.tutors.name %></div>
+      <% end %>
+    </div>
+  </div>
 </div>

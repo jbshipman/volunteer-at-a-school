@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :authorized_student, only: [:index, :show]
+  before_action :authorized_student, only: [:index, :show, :edit, :update, :destroy]
 
   def index
     @students = Student.all
@@ -8,19 +8,14 @@ class StudentsController < ApplicationController
 
   def show
     @student = Student.find(params[:id])
-    @subjects = @student.subjects.sort_by(&:name)
-    @tutors = @student.school.tutors.sort_by(&:name)
-    
-    # below breaks when @student id is greater than the last appointment id
-    # because the controller is passing in student id 
-    # to look for the appointment params id
-    
-    # @appointment = Appointment.find(params[:id])
+    @appointment = Appointment.new
+    @days = ["Tuesday", "Wednesday", "Thursday", "Saturday"]
+    @subjects = @student.subjects_sorted
+    @tutors = @student.find_tutors 
   end
 
   def new
     @student = Student.new
-    @appointment = Appointment.new
   end
 
   def edit
@@ -30,11 +25,13 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
     
     if @student.valid?
+
       @student.save
   
       session[:student_id] = @student.id
       redirect_to student_path(@student)
     else
+      flash[:errors] = @student.errors.full_messages
       render 'new'
     end
   end
@@ -48,6 +45,6 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:name, :username, :grade, :school_id)
+    params.require(:student).permit(:name, :username, :grade, :school_id, :tutor_id, :subject_ids => [])
   end
 end

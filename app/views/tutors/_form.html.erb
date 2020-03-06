@@ -1,14 +1,32 @@
-<%= form_for @tutor do |f| %>
-<%= f.label "Name of Tutor: " %>
-<%= f.text_field :name %>
-<br>
-<br>
-<%= f.label "Select a School You Would Like to Volunteer at: " %>
-<%= f.collection_select(:school_id, School.all, :id, :name) %>
-<br>
-<br>
-<%= f.label "Enter a New Username: " %>
-<%= f.text_field :username %>
-<br>
-<%= f.submit %>
+
+<div class="content_header"><h1>Create an Account to Tutor a Student</h1></div>
+
+<% if flash[:errors] %>
+<ul>
+  <% flash[:errors].each do |error| %>
+  <li><%= error %></li>
+  <% end %>
+</ul>
 <% end %>
+
+
+
+<div class="grouped_box">
+  <%= form_for @tutor do |f| %>
+    <p><%= f.label :name %><br>
+    <%= f.text_field :name %></p>
+   
+    <p><%= f.label :enter_username %><br>
+    <%= f.text_field :username %></p>
+   
+    <p><%= f.label :select_a_school %><br>
+    <%= f.collection_select(:school_id, School.all, :id, :name) %></p>
+
+    <p>
+      <%= f.label :bio %><br>
+      <%= f.text_area :bio %>
+    </p>
+
+    <%= f.submit %>
+  <% end %>
+</div>

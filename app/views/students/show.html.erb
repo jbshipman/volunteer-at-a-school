@@ -1,36 +1,60 @@
-<h1><%= @student.name %></h1>
+<div class="content_header"><h1><%= @student.name %></h1></div>
 
 <div>School: <%= link_to @student.school.name, school_path(@student.school) if @student.school.name %></div>
 <div>Grade: <%= @student.grade %></div>
 
-<div>
-  My Subjects:
-  <ol>
-    <% @student.subjects.sort_by(&:name).each do |subject| %>
-      <li><%= link_to subject.name, subject_path(subject) %></li>
+<div class="grouped_box">
+  <div class="selection_group"><h3>Core Subjects</h3>
+    <% @student.subjects.select(&:core_subject).sort_by(&:name).each do |subject| %>
+      <div><%= subject.name %></div>
     <% end %>
-  </ol>
-</div>
-
-<div>
-  My tutoring appointments:<br>
-  <ul>
-    <% @student.appointments.sort_by(&:time).each do |appt| %>
-      <li><%= appt.time.strftime("%m/%d/%Y at %I:%M%p") %>, with <%= link_to appt.tutor.name, tutor_path(appt.tutor) %>, for <%= link_to appt.subject.name, subject_path(appt.subject) %></li>
+  </div>
+  <div class="selection_group"><h3>Electives</h3>
+    <% @student.subjects.reject(&:core_subject).sort_by(&:name).each do |subject| %>
+      <div><%= subject.name %></div>
     <% end %>
-  </ul>
+  </div>
+
 </div>
 
-<div>
-  Book a tutoring appointment:<br>
-  <em>this form is not functioning yet, needs to be a new appointment even though it's all in the student controller and view</em>
-  <%= form_for(@student) do |f| %>
-    <%= f.label :subject %>
-    <%= f.collection_select(:subject_ids, @subjects, :id, :name) %><br>
-    <%= f.label :tutor %>
-    <%= f.collection_select(:tutor_ids, @tutors, :id, :name) %><br>
-  <% end %>
-</div>
+  <div class="grouped_box">
+    <div class="selection_group">
+      <div><h3>My tutoring appointments</h3>
+      <ul>
+       <% @student.appointments.each do |appointment| %>
+       <li><%= link_to appointment.subject.name, appointment_path(appointment) %></li>
+          <%= appointment.day %>
+          <%= appointment.time %>
+          <% end %>
+        </ul>
+    </div>
+  </div>
+    <div class="selection_group">
+    <div>Book a tutoring appointment: </div>
+  
+    <%= form_for(@appointment) do |f| %>
+      <%= f.hidden_field :student_id , value: @student.id %>
+    
+      <p><%= f.label :select_a_subject %><br>
+      <%= f.collection_select(:subject_id, @subjects, :id, :name, include_hidden: false) %></p>
+      
+      <p><%= f.label :select_a_tutor %><br>
+      <%= f.collection_select(:tutor_id, @tutors, :id, :name, include_hidden: false) %></p>
+      
+      <p><%= f.label :select_a_day %><br>
+      <%= f.select :day, @days %></p>
+      
+      <p><%= f.label :select_a_time %><br>
+      <%= f.select :time, ["4:00 pm", "5:00 pm", "6:00 pm", "10:30 am", "11:30 am"] %></p>
+      
+      <%= f.submit "Schedule a Tutor Appointment" %>
+    <% end %>
+    </div>
+    <div class="selection_group"><h3><%= button_to "Logout", sessions_path, method: :delete %></h3></div>
 
-<h3><%= button_to "Logout", sessions_path, method: :delete %></h3>
+  </div>
+
+
+
+
 

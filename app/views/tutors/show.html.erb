@@ -1,21 +1,22 @@
-<h1><%= @tutor.name %></h1>
+<div class="content_header"><h1><%= @tutor.name %></h1></div>
 
-<div>
-  School: <%= link_to @tutor.school.name, school_path(@tutor.school) if @tutor.school %>
-</div>
+  <div class="grouped_box">
+  <div>School: <%= link_to @tutor.school.name, school_path(@tutor.school) if @tutor.school %></div>
+  <div>Bio: <%= @tutor.bio %></div>
+  <div class="selection_group">
+    <h3>My appointments:</h3>
+    <ul>
+      <% @tutor.appointments.each do |appointment| %>
+      <li><%= link_to appointment.subject.name, appointment_path(appointment) %></li>
+        <br>
+        <%= appointment.day %>
+        <%= appointment.time %>
+      <% end %>
+    </ul>
+  </div>
 
-<div>
-  My Appointments:
-  <ul>
-    <% @tutor.appointments.sort_by(&:time).each do |appt| %>
-      <li><%= appt.time.strftime("%m/%d/%Y at %I:%M%p") %>, with <%= link_to appt.student.name, student_path(appt.student) %>, for <%= link_to appt.subject.name, subject_path(appt.subject) %></li>
-    <% end %>
-  </ul>
-</div>
+    <div><%= link_to '<button type="button">Edit my Profile</button>'.html_safe, edit_tutor_path(@tutor) %></div>
 
-<div><%= link_to 'Create a tutoring appointment', new_appointment_path %></div>
+    <div><h3><%= button_to "Logout", sessions_tutor_path, method: :delete %></h3></div>
+  </div>
 
-<div>School: <%= link_to @tutor.school.name, school_path(@tutor.school) if @tutor.school %></div>
-
-<br>
-<h3><%= button_to "Logout", sessions_tutor_path, method: :delete %></h3>

@@ -1,16 +1,34 @@
-<%= form_for @student do |f| %>
-<%= f.label "Name of Student: " %>
-<%= f.text_field :name %>
-<br>
-<%= f.label "Enter your Grade: " %>
-<%= f.number_field :grade %>
-<br>
-<%= f.label "Select your School: " %>
-<%= f.collection_select(:school_id, School.all, :id, :name) %>
-<br>
-<br>
-<%= f.label "Enter a New Username: " %>
-<%= f.text_field :username %>
-<br>
-<%= f.submit %>
-<% end %>
+<div class="content_header"><h1>New Student</h1></div>
+
+
+<div class="grouped_box">
+
+  <% if flash[:errors] %>
+  <ul>
+    <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+<div>
+
+  <%= form_for @student do |f| %>
+    <p><%= f.label :name %><br>
+    <%= f.text_field :name %></p>
+
+    <p><%= f.label :username %><br>
+    <%= f.text_field :username %></p>
+
+    <p><%= f.label :select_a_school %><br>
+    <%= f.collection_select(:school_id, School.all, :id, :name) %></p>
+    
+    <p><%= f.label :grade %><br>
+    <%= f.number_field :grade %></p>
+
+    <p><%= f.label :select_subjects %><br>
+    <%= f.collection_check_boxes(:subject_ids, Subject.all, :id, :name, include_hidden: false) %></p>
+
+    <%= f.submit %>
+  <% end %>
+</div>

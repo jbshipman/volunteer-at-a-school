@@ -1,5 +1,5 @@
 class TutorsController < ApplicationController
-  before_action :authorized_tutor, only: [:index, :show]
+  before_action :authorized_tutor, only: [:index, :show, :edit, :update, :destroy]
   
   def index
     @tutors = Tutor.all 
@@ -7,17 +7,10 @@ class TutorsController < ApplicationController
 
   def show
     @tutor = Tutor.find(params[:id])
-    @appointment = Appointment.find(params[:id])
-    @student = Student.find(params[:id])
-    @subject = Subject.find(params[:id])
   end
 
   def new
     @tutor = Tutor.new
-
-  end
-
-  def edit
   end
 
   def create
@@ -29,11 +22,21 @@ class TutorsController < ApplicationController
       session[:tutor_id] = @tutor.id
       redirect_to tutor_path(@tutor)
     else
+      flash[:errors] = @tutor.errors.full_messages
       render 'new'
     end
   end
 
+  def edit
+  end
+
   def update
+    @tutor = Tutor.find(params[:id])
+    if @tutor.update(update_tutor_params)
+      redirect_to tutor_path(@tutor)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -42,6 +45,10 @@ class TutorsController < ApplicationController
   private
 
   def tutor_params
-    params.require(:tutor).permit(:name, :username, :school_id)
+    params.require(:tutor).permit(:name, :username, :bio, :school_id)
+  end
+
+  def update_tutor_params
+    params.require(:tutor).permit(:username, :bio)
   end
 end
