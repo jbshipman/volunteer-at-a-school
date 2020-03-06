@@ -9,9 +9,9 @@ class StudentsController < ApplicationController
   def show
     @student = Student.find(params[:id])
     @appointment = Appointment.new
-    
-    @subjects = @student.subjects.sort_by(&:name)
-    @tutors = @student.school.tutors.sort_by(&:name)
+    @days = ["Tuesday", "Wednesday", "Thursday", "Saturday"]
+    @subjects = @student.subjects_sorted
+    @tutors = @student.find_tutors 
   end
 
   def new
@@ -31,6 +31,7 @@ class StudentsController < ApplicationController
       session[:student_id] = @student.id
       redirect_to student_path(@student)
     else
+      flash[:errors] = @student.errors.full_messages
       render 'new'
     end
   end

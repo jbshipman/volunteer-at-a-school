@@ -1,6 +1,18 @@
 <div class="content_header"><h1>New Student</h1></div>
 
+
 <div class="grouped_box">
+
+  <% if flash[:errors] %>
+  <ul>
+    <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+<div>
+
   <%= form_for @student do |f| %>
     <p><%= f.label :name %><br>
     <%= f.text_field :name %></p>
