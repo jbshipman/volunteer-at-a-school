@@ -21,13 +21,25 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: azure;
+  /* background: linear-gradient(180deg, rgba(41,158,255,1) 0%, rgba(255,255,255,0) 50%);
+  background-repeat: repeat-x; */
+  /* background-color: darkblue; */
+
 }
 
-/* Style the side navigation */
+.bg-image {
+  background: url("apple-book-business-calendar-301943.jpg") no-repeat ;
+  background-size: cover;
+
+}
+
 .sidenav {
   height: 100%;
   width: 10em;
@@ -39,7 +51,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Side navigation links */
 .sidenav a {
   color: white;
   padding: 1em;
@@ -47,46 +58,46 @@ body {
   display: block;
 }
 
-/* Change color on hover */
 .sidenav a:hover {
   background-color: #ddd;
   color: black;
 }
 
-/* Style the content */
 .content {
   margin-left: 10em;
   padding-left: 1em;
 }
 
 .content_header {
-  /* margin: unset; */
-  background: rgba(0, 0, 0, 0.2);
+  margin: unset;
+  background: rgba(0,0,0, 0.1);
   padding-left: 0.16em;
   padding-right: 0.16em;
-  
+  border-radius: 4px;
 }
 
 .grouped_box {  
-  background: rgba(0, 0, 0, 0.2);
-  margin: 0.16em;
+  background: rgba(0,0,0, 0.1);
+  /* margin: 0.16em; */
   padding: 0.16em;
-  /* border-radius: 4px; */
+  border-radius: 4px;
   float: left;
   clear: left;
 }
 
 .selection_group {
-  background: rgba(0, 0, 0, 0.2);
-  margin: 0.16em;
-  padding: 0.32em;
-  /* border-radius: 4px; */
+  background: rgba(0,0,0, 0.1);
+  margin: 0.32em;
+  /* padding: 0.32em; */
+  border-radius: 4px;
 }
 
 ul {
   list-style: none;
+  padding-inline-start: 0.08em;
 }
 
 li {
   margin-top: 1em;
+
 }

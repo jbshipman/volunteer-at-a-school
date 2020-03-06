@@ -4,7 +4,7 @@
   <div class="selection_group">
     <ul>
       <% @subjects.sort_by(&:name).each do |subject| %>
-        <div><li><%= link_to subject.name, subject_path(subject) if @subjects.name %></li></div>
+        <div><li><%=subject.name%></li></div>
       <% end %>
     </ul>
   </div>
