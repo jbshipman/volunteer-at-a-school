@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :subjects, only: [:index, :new, :create, :destroy]
-  resources :schools
+  resources :subjects, only: [:index, :show, :new, :create, :destroy]
+  resources :schools, only: [:index, :show, :new, :create]
   resources :students
   resources :tutors
   resources :appointments

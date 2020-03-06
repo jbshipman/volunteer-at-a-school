@@ -33,3 +33,7 @@
 
 
 <h3> <%= button_to "Delete Appointment", appointment_path(@appointment), method: :delete %> </h3>
+<br>
+<br>
+<h4>Edit is not working but does go to an edit appointment page</h4>
+<%= link_to '<button type="button">Edit this Appointment</button>'.html_safe, edit_appointment_path(@appointment) %>

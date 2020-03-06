@@ -33,10 +33,19 @@ class AppointmentsController < ApplicationController
 
   def edit
     @appointment = Appointment.find(params[:id])
+    @student = @appointment.student
+    @subjects = @appointment.student.subjects_sorted
+    @tutors = @appointment.student.find_tutors
+    @days = ["Tuesday", "Wednesday", "Thursday", "Saturday"]
   end
 
   def update
     @appointment = Appointment.find(params[:id])
+    if @appointment.update(update_params)
+      redirect_to student_path(@appointment.student)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -49,4 +58,8 @@ class AppointmentsController < ApplicationController
     def appointment_params
       params.require(:appointment).permit(:student_id, :subject_id, :tutor_id, :day, :time)
     end 
+
+    def update_params
+      params.require(:appointment).permit(:subject_id, :day, :time)
+    end
 end
