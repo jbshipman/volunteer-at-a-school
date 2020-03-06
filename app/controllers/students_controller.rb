@@ -31,6 +31,7 @@ class StudentsController < ApplicationController
       session[:student_id] = @student.id
       redirect_to student_path(@student)
     else
+      flash[:errors] = @student.errors.full_messages
       render 'new'
     end
   end
