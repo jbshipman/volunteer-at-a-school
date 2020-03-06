@@ -3,54 +3,54 @@
 <div>School: <%= link_to @student.school.name, school_path(@student.school) if @student.school.name %></div>
 <div>Grade: <%= @student.grade %></div>
 
-<div>
-  <div><h3>Core Subjects</h3>
+<div class="grouped_box">
+  <div class="selection_group"><h3>Core Subjects</h3>
     <% @student.subjects.select(&:core_subject).sort_by(&:name).each do |subject| %>
       <div><%= link_to subject.name, subject_path(subject) %></div>
     <% end %>
   </div>
-  <div><h3>Electives</h3>
+  <div class="selection_group"><h3>Electives</h3>
     <% @student.subjects.reject(&:core_subject).sort_by(&:name).each do |subject| %>
       <div><%= link_to subject.name, subject_path(subject) %></div>
     <% end %>
-</div>
-
-<div>
-  <div><h3>My tutoring appointments:</h3>
-  <ul>
-    <% @student.appointments.each do |appointment| %>
-     <li><%= link_to appointment.subject.name, appointment_path(appointment) %></li>
-      <%= appointment.day %>
-      <%= appointment.time %>
-      <br>
-      <br>
-    <% end %>
-  </ul>
   </div>
-</div>
 
-<div>
-  <div>Book a tutoring appointment: </div><br>
- 
-  <%= form_for(@appointment) do |f| %>
-    <%= f.hidden_field :student_id , value: @student.id %>
-   
-    <%= f.label "Select a Subject: " %>
-    <%= f.collection_select(:subject_id, @subjects, :id, :name, include_hidden: false) %><br>
-    <br>
-    <%= f.label "Select a Tutor: " %>
-    <%= f.collection_select(:tutor_id, @tutors, :id, :name, include_hidden: false) %>
-    <br>
-    <%= f.label "Select a Day: " %>
-    <%= f.select :day, ["Tuesday", "Wednesday", "Thursday", "Saturday"] %>
-    <br>
-    <%= f.label "Select a Time: " %>
-    <%= f.select :time, ["4:00 pm", "5:00 pm", "6:00 pm", "10:30 am", "11:30 am"] %>
-    <br>
-    <%= f.submit "Schedule a Tutor Appointment" %>
-  <% end %>
-</div>
+  <div class="selection_group">
+    <div><h3>My tutoring appointments</h3>
+    <ul>
+      <% @student.appointments.each do |appointment| %>
+      <li><%= link_to appointment.subject.name, appointment_path(appointment) %></li>
+        <%= appointment.day %>
+        <%= appointment.time %>
+        <br>
+        <br>
+      <% end %>
+    </ul>
+    </div>
+  </div>
 
-<div><h3><%= button_to "Logout", sessions_path, method: :delete %></h3></div>
+  <div class="selection_group">
+    <div>Book a tutoring appointment </div><br>
+  
+    <%= form_for(@appointment) do |f| %>
+      <%= f.hidden_field :student_id , value: @student.id %>
+    
+      <%= f.label "Select a Subject: " %>
+      <%= f.collection_select(:subject_id, @subjects, :id, :name, include_hidden: false) %><br>
+      <br>
+      <%= f.label "Select a Tutor: " %>
+      <%= f.collection_select(:tutor_id, @tutors, :id, :name, include_hidden: false) %>
+      <br>
+      <%= f.label "Select a Day: " %>
+      <%= f.select :day, ["Tuesday", "Wednesday", "Thursday", "Saturday"] %>
+      <br>
+      <%= f.label "Select a Time: " %>
+      <%= f.select :time, ["4:00 pm", "5:00 pm", "6:00 pm", "10:30 am", "11:30 am"] %>
+      <br>
+      <%= f.submit "Schedule a Tutor Appointment" %>
+    <% end %>
+  </div>
+
+  <div class="selection_group"><h3><%= button_to "Logout", sessions_path, method: :delete %></h3></div>
 
 

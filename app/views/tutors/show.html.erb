@@ -1,17 +1,21 @@
 <div class="content_header"><h1><%= @tutor.name %></h1></div>
 
-<div>School: <%= link_to @tutor.school.name, school_path(@tutor.school) if @tutor.school %></div>
-<div>Bio: <%= @tutor.bio %></div>
 <div class="grouped_box">
-  <h3>My appointments:</h3>
-  <ul>
-    <% @tutor.appointments.each do |appointment| %>
-     <li><%= link_to appointment.subject.name, appointment_path(appointment) %></li>
-      <br>
-      <%= appointment.day %>
-      <%= appointment.time %>
-    <% end %>
-  </ul>
-</div>
+  <div>School: <%= link_to @tutor.school.name, school_path(@tutor.school) if @tutor.school %></div>
+  <div>Bio: <%= @tutor.bio %></div>
+  <div class="selection_group">
+    <h3>My appointments:</h3>
+    <ul>
+      <% @tutor.appointments.each do |appointment| %>
+      <li><%= link_to appointment.subject.name, appointment_path(appointment) %></li>
+        <br>
+        <%= appointment.day %>
+        <%= appointment.time %>
+      <% end %>
+    </ul>
+  </div>
 
-<div class="grouped_box"><h3><%= button_to "Logout", sessions_tutor_path, method: :delete %></h3></div>
+
+  <div class="selection_group"><h3><%= button_to "Logout", sessions_tutor_path, method: :delete %></h3></div>
+
+  </div>
