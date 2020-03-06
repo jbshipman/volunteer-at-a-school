@@ -1,9 +1,9 @@
-<h1>Tutors index</h1>
+<div class="content_header"><h1>Tutors index</h1></div>
 
-<div>
+<div class="grouped_box">
   <ul>
     <% @tutors.sort_by(&:name).each do |tutor| %>
-      <li><%= link_to tutor.name, tutor_path(tutor) if @tutors.name %></li>
+      <div><li><%= link_to tutor.name, tutor_path(tutor) if @tutors.name %></li></div>
     <% end %>
   </ul> 
 </div>

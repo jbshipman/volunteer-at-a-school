@@ -55,12 +55,37 @@ body {
 /* Style the content */
 .content {
   margin-left: 10em;
-  padding-left: 1.28em;
+  padding-left: 1em;
 }
 
 .content_header {
-  margin: unset;
+  /* margin: unset; */
   background: rgba(0,0,0,0.1);
   padding-left: 0.16em;
   padding-right: 0.16em;
+  
+}
+
+.grouped_box {  
+  background: rgba(0,0,0,0.1);
+  margin: 0.16em;
+  padding: 0.16em;
+  /* border-radius: 4px; */
+  float: left;
+  clear: left;
+}
+
+.selection_group {
+  background: rgba(0,0,0,0.1);
+  margin: 0.16em;
+  padding: 0.16em;
+  /* border-radius: 4px; */
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin-top: 1em;  
 }

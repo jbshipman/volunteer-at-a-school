@@ -1,9 +1,9 @@
-<h1>Subjects index</h1>
+<div class="content_header"><h1>Subjects index</h1></div>
 
-<div>
+<div class="grouped_box">
   <ul>
     <% @subjects.sort_by(&:name).each do |subject| %>
-      <li><%= link_to subject.name, subject_path(subject) if @subjects.name %></li>
+      <div><li><%= link_to subject.name, subject_path(subject) if @subjects.name %></li></div>
     <% end %>
   </ul>
 </div>
