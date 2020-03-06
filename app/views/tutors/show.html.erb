@@ -1,8 +1,8 @@
-<h1><%= @tutor.name %></h1>
+<div class="content_header"><h1><%= @tutor.name %></h1></div>
 
 <div>School: <%= link_to @tutor.school.name, school_path(@tutor.school) if @tutor.school %></div>
 <div>Bio: <%= @tutor.bio %></div>
-<div>
+<div class="grouped_box">
   <h3>My appointments:</h3>
   <ul>
     <% @tutor.appointments.each do |appointment| %>
@@ -14,4 +14,4 @@
   </ul>
 </div>
 
-<div><h3><%= button_to "Logout", sessions_tutor_path, method: :delete %></h3></div>
+<div class="grouped_box"><h3><%= button_to "Logout", sessions_tutor_path, method: :delete %></h3></div>

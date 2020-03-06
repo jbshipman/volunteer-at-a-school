@@ -1,9 +1,11 @@
 <div class="content_header"><h1>Students index</h1></div>
 
 <div class="grouped_box">
+<div class="selection_group">
   <ul>
     <% @students.sort_by(&:name).each do |student| %>
       <div><li><%= link_to student.name, student_path(student) if @students.name %></li></div>
     <% end %>
   </ul>
+  </div>
 </div>

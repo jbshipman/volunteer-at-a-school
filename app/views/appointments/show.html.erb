@@ -1,35 +1,23 @@
-<% if session[:tutor_id] %>
-  <h1><%= @appointment.tutor.name %>, these are your scheduled appointments.</h1>
-  <strong><%= @appointment.subject.name %></strong>
-  <br>
-  <br>
-  <%= @appointment.day %>
-  <br>
-  <%= @appointment.time %>
-  <br>
-  <%= link_to '<button type="button">Return to Your Home Page</button>'.html_safe, tutor_path(@appointment.tutor) %>
-  <div><h3><%= button_to "Logout", sessions_tutor_path, method: :delete %></h3></div>
+<div class="content_header">
+  <% if session[:tutor_id] %>
+    <div><h1><%= @appointment.tutor.name %>, these are your scheduled appointments.</h1></div>
+    <div><h2><%= @appointment.subject.name %></h2></div>
+    <div><%= @appointment.day %></div>
+    <div><%= @appointment.time %></div>
+    <div><%= link_to '<button type="button">Return to Your Home Page</button>'.html_safe, tutor_path(@appointment.tutor) %></div>
+    <div><h3><%= button_to "Logout", sessions_tutor_path, method: :delete %></h3></div>
+  <% end %>
+</div>
 
-<% end %>
+<div class="content_header">
+  <% if session[:student_id] %>
+    <div class="grouped_box"><h1><%= @appointment.student.name %>, you successfully scheduled this appointment.</h1>
+      <h2><%= @appointment.subject.name %></h2></div>
+    <div><%= @appointment.day %></div>
+    <div><%= @appointment.time %></div>
+    <div><%= link_to '<button type="button">Return to Your Home Page</button>'.html_safe, student_path(@appointment.student) %></div>
+    <div><h3><%= button_to "Logout", sessions_path, method: :delete %></h3></div>
+  <% end %>
+</div>
 
-<% if session[:student_id] %>
-
-<h1><%= @appointment.student.name %>, you successfully scheduled this appointment.</h1>
-<br>
-
-<strong><%= @appointment.subject.name %></strong>
-<br>
-<br>
-<%= @appointment.day %>
-<br>
-<%= @appointment.time %>
-<br>
-<%= link_to '<button type="button">Return to Your Home Page</button>'.html_safe, student_path(@appointment.student) %>
-<br>
-<h3><%= button_to "Logout", sessions_path, method: :delete %></h3>
-<% end %>
-<br>
-<br>
-
-
-<h3> <%= button_to "Delete Appointment", appointment_path(@appointment), method: :delete %> </h3>
+<div><h3> <%= button_to "Delete Appointment", appointment_path(@appointment), method: :delete %> </h3></div>
