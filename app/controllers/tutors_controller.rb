@@ -30,6 +30,12 @@ class TutorsController < ApplicationController
   end
 
   def update
+    @tutor = Tutor.find(params[:id])
+    if @tutor.update(update_tutor_params)
+      redirect_to tutor_path(@tutor)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -39,5 +45,9 @@ class TutorsController < ApplicationController
 
   def tutor_params
     params.require(:tutor).permit(:name, :username, :bio, :school_id)
+  end
+
+  def update_tutor_params
+    params.require(:tutor).permit(:username, :bio)
   end
 end

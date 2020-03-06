@@ -14,4 +14,6 @@
   </ul>
 </div>
 
+<%= link_to '<button type="button">Edit my Profile</button>'.html_safe, edit_tutor_path(@tutor) %>
+
 <div><h3><%= button_to "Logout", sessions_tutor_path, method: :delete %></h3></div>
