@@ -1,6 +1,6 @@
 <div class="content_header"><h1><%= @tutor.name %></h1></div>
 
-<div class="grouped_box">
+  <div class="grouped_box">
   <div>School: <%= link_to @tutor.school.name, school_path(@tutor.school) if @tutor.school %></div>
   <div>Bio: <%= @tutor.bio %></div>
   <div class="selection_group">
@@ -15,14 +15,8 @@
     </ul>
   </div>
 
+    <div><%= link_to '<button type="button">Edit my Profile</button>'.html_safe, edit_tutor_path(@tutor) %></div>
 
-
-  <div class="selection_group"><h3><%= button_to "Logout", sessions_tutor_path, method: :delete %></h3></div>
-
+    <div><h3><%= button_to "Logout", sessions_tutor_path, method: :delete %></h3></div>
   </div>
-
-<%= link_to '<button type="button">Edit my Profile</button>'.html_safe, edit_tutor_path(@tutor) %>
-
-
-<div><h3><%= button_to "Logout", sessions_tutor_path, method: :delete %></h3></div>
 

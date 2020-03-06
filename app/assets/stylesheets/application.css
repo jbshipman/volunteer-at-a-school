@@ -35,7 +35,10 @@ body {
 }
 
 .bg-image {
-  background: url("apple-book-business-calendar-301943.jpg") no-repeat ;
+  background: url("apple-book-business-calendar-301943.jpg") no-repeat;
+  /* background: url("Free-Chalkboard-Backgrounds-Download.jpg") no-repeat; */
+  /* background: url("people-notes-meeting-team-7095.jpg") no-repeat; */
+
   background-size: cover;
 
 }
@@ -78,18 +81,19 @@ body {
 
 .grouped_box {  
   background: rgba(0,0,0, 0.1);
-  /* margin: 0.16em; */
   padding: 0.16em;
   border-radius: 4px;
   float: left;
-  clear: left;
 }
 
 .selection_group {
   background: rgba(0,0,0, 0.1);
   margin: 0.32em;
-  /* padding: 0.32em; */
+  padding: 0.32em;
+  padding-bottom: 1em;
   border-radius: 4px;
+  clear: left;
+
 }
 
 ul {

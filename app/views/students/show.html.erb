@@ -28,8 +28,10 @@
     </ul>
     </div>
   </div>
+</div>
 
-  <div class="selection_group">
+  <div class="grouped_box">
+    <div class="selection_group">
     <div>Book a tutoring appointment: </div>
   
     <%= form_for(@appointment) do |f| %>
@@ -49,10 +51,12 @@
       
       <%= f.submit "Schedule a Tutor Appointment" %>
     <% end %>
+    </div>
+    <div class="selection_group"><h3><%= button_to "Logout", sessions_path, method: :delete %></h3></div>
+
   </div>
 
 
 
-  <div class="selection_group"><h3><%= button_to "Logout", sessions_path, method: :delete %></h3></div>
 
 
