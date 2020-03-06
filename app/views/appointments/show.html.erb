@@ -1,15 +1,4 @@
 <div class="grouped_box">
-  <% if session[:tutor_id] %>
-    <div><h1><%= @appointment.tutor.name %>, these are your scheduled appointments.</h1></div>
-    <div><h2><%= @appointment.subject.name %></h2></div>
-    <div><%= @appointment.day %></div>
-    <div><%= @appointment.time %></div>
-    <div><%= link_to '<button type="button">Return to Your Home Page</button>'.html_safe, tutor_path(@appointment.tutor) %></div>
-    <div><h3><%= button_to "Logout", sessions_tutor_path, method: :delete %></h3></div>
-  <% end %>
-</div>
-
-<div class="grouped_box">
   <% if session[:student_id] %>
     <div class="selection_group"><h1><%= @appointment.student.name %>, you successfully scheduled this appointment.</h1>
     <h2><%= @appointment.subject.name %></h2>

@@ -15,22 +15,20 @@
     <% end %>
   </div>
 
-  <div class="selection_group">
-    <div><h3>My tutoring appointments</h3>
-    <ul>
-      <% @student.appointments.each do |appointment| %>
-      <li><%= link_to appointment.subject.name, appointment_path(appointment) %></li>
-        <%= appointment.day %>
-        <%= appointment.time %>
-        <br>
-        <br>
-      <% end %>
-    </ul>
-    </div>
-  </div>
 </div>
 
   <div class="grouped_box">
+    <div class="selection_group">
+      <div><h3>My tutoring appointments</h3>
+      <ul>
+       <% @student.appointments.each do |appointment| %>
+       <li><%= link_to appointment.subject.name, appointment_path(appointment) %></li>
+          <%= appointment.day %>
+          <%= appointment.time %>
+          <% end %>
+        </ul>
+    </div>
+  </div>
     <div class="selection_group">
     <div>Book a tutoring appointment: </div>
   

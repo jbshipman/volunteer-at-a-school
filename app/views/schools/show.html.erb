@@ -1,5 +1,25 @@
 <div class="content_header"><h1><%= @school.name %></h1></div>
 
+<div class=grouped_box>
+  <div class="selection_group">
+    <div><h2>Core Subjects:</h2></div>
+    <div>
+      <% @school.subjects.select(&:core_subject).sort_by(&:name).each do |subject| %>
+        <div><%= link_to subject.name, subject_path(subject) if @school.subjects.name %></div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="selection_group">
+  <div><h2>Electives:</h2></div>
+    <div>
+      <% @school.subjects.reject(&:core_subject).sort_by(&:name).each do |subject| %>
+        <div><%= link_to subject.name, subject_path(subject) if @school.subjects.name %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <div class="grouped_box">
   <div class="selection_group"><h2>Our Students: </h2>
   <div>
@@ -17,22 +37,4 @@
       <% end %>
     </div>
   </div>
-
-  <div class="selection_group">
-    <div><h2>Core Subjects:</h2></div>
-    <div>
-      <% @school.subjects.select(&:core_subject).sort_by(&:name).each do |subject| %>
-        <div><%= link_to subject.name, subject_path(subject) if @school.subjects.name %></div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="selection_group">
-  <div><h2>Electives:</h2></div>
-    <div>
-      <% @school.subjects.reject(&:core_subject).sort_by(&:name).each do |subject| %>
-        <div><%= link_to subject.name, subject_path(subject) if @school.subjects.name %></div>
-      <% end %>
-    </div>
-    </div>
 </div>

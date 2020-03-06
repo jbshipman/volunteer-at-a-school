@@ -2,8 +2,20 @@
 
 <div class="grouped_box">
   <div class="selection_group">
+    <h2>Core Subjects</h2>
     <ul>
-      <% @subjects.sort_by(&:name).each do |subject| %>
+      <% @subjects.select(&:core_subject).sort_by(&:name).each do |subject| %>
+        <div><li><%=subject.name%></li></div>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="grouped_box">
+  <div class="selection_group">
+    <h2>Electives</h2>
+    <ul>
+      <% @subjects.reject(&:core_subject).sort_by(&:name).each do |subject| %>
         <div><li><%=subject.name%></li></div>
       <% end %>
     </ul>

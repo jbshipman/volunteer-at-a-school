@@ -34,7 +34,9 @@ Appointment.destroy_all
 schools = [
   {name: 'High School High'},
   {name: 'Sunnydale High'},
-  {name: 'Bad Wolf High'}
+  {name: 'Bad Wolf High'},
+  {name: 'Cedar Park Middle School'}
+
 ]
 schools.each {|school| School.create(school)}
 
@@ -48,11 +50,6 @@ subjects = [
   {name: 'Zoology', core_subject: 1},
   {name: 'World Lit', core_subject: 1},
   {name: 'Ancient World History', core_subject: 1},
-  {name: 'Modern World History', core_subject: 1},
-  {name: 'Chemistry', core_subject: 1},
-  {name: 'Organic Checmistry', core_subject: 1},
-  {name: 'Intro to Computer Science', core_subject: 1},
-  {name: 'Intro to Acting', core_subject: 1},
   {name: 'Intro to Tech Theatre', core_subject: 1},
   {name: 'Practical Math', core_subject: 1},
   {name: 'Sociology 101', core_subject: 1},
@@ -126,10 +123,6 @@ school_subjects = [
   {school_id: 1, subject_id: 24},
   {school_id: 1, subject_id: 25},
   {school_id: 1, subject_id: 26},
-  {school_id: 1, subject_id: 27},
-  {school_id: 1, subject_id: 28},
-  {school_id: 1, subject_id: 29},
-  {school_id: 1, subject_id: 30},
   {school_id: 2, subject_id: 1},
   {school_id: 2, subject_id: 2},
   {school_id: 2, subject_id: 3},
@@ -155,10 +148,6 @@ school_subjects = [
   {school_id: 2, subject_id: 24},
   {school_id: 2, subject_id: 25},
   {school_id: 2, subject_id: 26},
-  {school_id: 2, subject_id: 27},
-  {school_id: 2, subject_id: 28},
-  {school_id: 2, subject_id: 29},
-  {school_id: 2, subject_id: 30},
   {school_id: 3, subject_id: 1},
   {school_id: 3, subject_id: 2},
   {school_id: 3, subject_id: 3},
@@ -185,10 +174,33 @@ school_subjects = [
   {school_id: 3, subject_id: 24},
   {school_id: 3, subject_id: 25},
   {school_id: 3, subject_id: 26},
-  {school_id: 3, subject_id: 27},
-  {school_id: 3, subject_id: 28},
-  {school_id: 3, subject_id: 29},
-  {school_id: 3, subject_id: 30}
+  {school_id: 4, subject_id: 1},
+  {school_id: 4, subject_id: 2},
+  {school_id: 4, subject_id: 3},
+  {school_id: 4, subject_id: 4},
+  {school_id: 4, subject_id: 5},
+  {school_id: 4, subject_id: 6},
+  {school_id: 4, subject_id: 7},
+  {school_id: 4, subject_id: 8},
+  {school_id: 4, subject_id: 9},
+  {school_id: 4, subject_id: 10},
+  {school_id: 4, subject_id: 11},
+  {school_id: 4, subject_id: 12},
+  {school_id: 4, subject_id: 13},
+  {school_id: 4, subject_id: 14},
+  {school_id: 4, subject_id: 15},
+  {school_id: 4, subject_id: 16},
+  {school_id: 4, subject_id: 17},
+  {school_id: 4, subject_id: 18},
+  {school_id: 4, subject_id: 19},
+  {school_id: 4, subject_id: 20},
+  {school_id: 4, subject_id: 21},
+  {school_id: 4, subject_id: 22},
+  {school_id: 4, subject_id: 23},
+  {school_id: 4, subject_id: 24},
+  {school_id: 4, subject_id: 25},
+  {school_id: 4, subject_id: 26},
+
 ]
 school_subjects.each {|schsub| SchoolSubject.create(schsub)}
 
