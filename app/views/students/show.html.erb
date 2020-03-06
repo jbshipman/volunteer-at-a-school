@@ -30,52 +30,27 @@
   </div>
 
   <div class="selection_group">
-    <div>Book a tutoring appointment </div><br>
+    <div>Book a tutoring appointment: </div>
   
     <%= form_for(@appointment) do |f| %>
       <%= f.hidden_field :student_id , value: @student.id %>
     
-      <%= f.label "Select a Subject: " %>
-      <%= f.collection_select(:subject_id, @subjects, :id, :name, include_hidden: false) %><br>
-      <br>
-      <%= f.label "Select a Tutor: " %>
-      <%= f.collection_select(:tutor_id, @tutors, :id, :name, include_hidden: false) %>
-      <br>
-      <%= f.label "Select a Day: " %>
-      <%= f.select :day, ["Tuesday", "Wednesday", "Thursday", "Saturday"] %>
-      <br>
-      <%= f.label "Select a Time: " %>
-      <%= f.select :time, ["4:00 pm", "5:00 pm", "6:00 pm", "10:30 am", "11:30 am"] %>
-      <br>
+      <p><%= f.label :select_a_subject %><br>
+      <%= f.collection_select(:subject_id, @subjects, :id, :name, include_hidden: false) %></p>
+      
+      <p><%= f.label :select_a_tutor %><br>
+      <%= f.collection_select(:tutor_id, @tutors, :id, :name, include_hidden: false) %></p>
+      
+      <p><%= f.label :select_a_day %><br>
+      <%= f.select :day, @days %></p>
+      
+      <p><%= f.label :select_a_time %><br>
+      <%= f.select :time, ["4:00 pm", "5:00 pm", "6:00 pm", "10:30 am", "11:30 am"] %></p>
+      
       <%= f.submit "Schedule a Tutor Appointment" %>
     <% end %>
-
   </div>
 
-  </ul>
-</div>
-
-<div>
-  <strong>Book a tutoring appointment: </strong><br>
- 
-  <%= form_for(@appointment) do |f| %>
-    <%= f.hidden_field :student_id , value: @student.id %>
-   
-    <%= f.label "Select a Subject: " %>
-    <%= f.collection_select(:subject_id, @subjects, :id, :name, include_hidden: false) %><br>
-    <br>
-    <%= f.label "Select a Tutor: " %>
-    <%= f.collection_select(:tutor_id, @tutors, :id, :name, include_hidden: false) %>
-    <br>
-    <%= f.label "Select a Day: " %>
-    <%= f.select :day, @days %>
-    <br>
-    <%= f.label "Select a Time: " %>
-    <%= f.select :time, ["4:00 pm", "5:00 pm", "6:00 pm", "10:30 am", "11:30 am"] %>
-    <br>
-    <%= f.submit "Schedule a Tutor Appointment" %>
-  <% end %>
-</div>
 
 
   <div class="selection_group"><h3><%= button_to "Logout", sessions_path, method: :delete %></h3></div>
