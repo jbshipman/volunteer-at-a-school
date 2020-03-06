@@ -1,3 +1,11 @@
+<% if flash[:errors] %>
+<ul>
+  <% flash[:errors].each do |error| %>
+  <li><%= error %></li>
+  <% end %>
+</ul>
+<% end %>
+
 
 <div>
   <%= form_for @tutor do |f| %>

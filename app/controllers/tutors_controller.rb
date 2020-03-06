@@ -22,6 +22,7 @@ class TutorsController < ApplicationController
       session[:tutor_id] = @tutor.id
       redirect_to tutor_path(@tutor)
     else
+      flash[:errors] = @tutor.errors.full_messages
       render 'new'
     end
   end
